@@ -5,7 +5,7 @@ export interface ChannelsParam {
   /**
    * Comma separated list of languages. Language is a property of Channel, so only Channels satisfying the language will be returned. Leave empty to search for Vtubers and/or all clippers.
    */
-  lang?: string;
+  lang?: string | string[];
 
   /**
    * Results limit. Has a maximum of 50.
