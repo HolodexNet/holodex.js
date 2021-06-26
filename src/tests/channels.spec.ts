@@ -12,20 +12,29 @@ describe('Channels', () => {
   });
 
   describe('#getChannels()', () => {
-    it('should work', () => expect(client.getChannels()).resolves.toHaveLength(25));
+    it('should work', () =>
+      expect(client.getChannels()).resolves.toHaveLength(25));
 
-    it('query Hololive', () => expect(client.getChannels({
-      org: 'Hololive',
-    })).resolves.toEqual(expect.arrayContaining([
-      expect.objectContaining({
-        organization: expect.stringMatching('Hololive'),
-      })
-    ])));
+    it('query Hololive', () =>
+      expect(
+        client.getChannels({
+          org: 'Hololive',
+        }),
+      ).resolves.toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            organization: expect.stringMatching('Hololive'),
+          }),
+        ]),
+      ));
   });
 
   describe('#getChannel()', () => {
-    it('should work', () => expect(client.getChannel('UC-hM6YJuNYVAmUWxeIr9FeA')).resolves.toMatchObject({
-      channelId: 'UC-hM6YJuNYVAmUWxeIr9FeA',
-    }));
+    it('should work', () =>
+      expect(
+        client.getChannel('UC-hM6YJuNYVAmUWxeIr9FeA'),
+      ).resolves.toMatchObject({
+        channelId: 'UC-hM6YJuNYVAmUWxeIr9FeA',
+      }));
   });
 });

@@ -1,7 +1,6 @@
-import { VideoRaw } from './raw/video-raw';
-import { ExtraData } from './enums/extra-data';
 import { Channel } from './channel';
 import { Comment } from './comment';
+import { VideoRaw } from './raw/video-raw';
 import { Song } from './song';
 
 export class Video {

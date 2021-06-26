@@ -1,8 +1,8 @@
-import { ExtraData } from "../enums/extra-data";
-import { SortOrder } from "../enums/sort-order";
-import { VideoStatus } from "../enums/video-status";
-import { VideoType } from "../enums/video-type";
-import { VideoRaw } from "../raw";
+import { ExtraData } from '../enums/extra-data';
+import { SortOrder } from '../enums/sort-order';
+import { VideoStatus } from '../enums/video-status';
+import { VideoType } from '../enums/video-type';
+import { VideoRaw } from '../raw';
 
 export interface VideosParam {
   /**

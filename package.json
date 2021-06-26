@@ -1,5 +1,5 @@
 {
-  "name": "holodex-api",
+  "name": "@stu43005/holodex-api",
   "version": "1.0.0",
   "description": "A Javascript library for the Holodex API.",
   "main": "dist/index.js",
@@ -12,6 +12,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "docs": "typedoc --theme ./node_modules/typedoc-neo-theme/bin/default --plugin typedoc-neo-theme --excludeInternal --out docs src/index.ts",
     "publish:prepare": "npm run lint:fix && npm run test:full && npm run docs",
     "publish:patch": "npm version patch && npm publish --access public",
     "publish:minor": "npm version minor && npm publish --access public",
@@ -24,6 +25,9 @@
   ],
   "author": "Shiaupiau",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stu43005/holodex-api"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "axios-retry": "^3.1.9",
@@ -49,6 +53,8 @@
     "ts-loader": "^9.2.3",
     "ts-node": "^10.0.0",
     "tsconfig-paths": "^3.9.0",
+    "typedoc": "^0.21.1",
+    "typedoc-neo-theme": "^1.1.1",
     "typescript": "^4.3.4"
   },
   "jest": {

@@ -1,4 +1,4 @@
-import { ExtraData } from "../enums/extra-data";
+import { ExtraData } from '../enums/extra-data';
 
 export interface ChannelVideosParam {
   /**
