@@ -123,79 +123,54 @@ export class Video {
   /**
    * The {@link Channel} object of the video creator.
    */
-  public get channel() {
-    return this.#channel;
-  }
+  public readonly channel: Channel;
 
   /**
    * A list of comments on this video, usually with timestamps. Used when searching for a specific video.
    */
-  public get comments(): Readonly<Comment[]> {
-    return this.#comments;
-  }
+  public readonly comments: Readonly<Comment[]>;
 
   /**
    * A list of clips related to this video. Used with {@link ExtraData.Clips}
    */
-  public get clips(): Readonly<Video[]> {
-    return this.#clips;
-  }
+  public readonly clips: Readonly<Video[]>;
 
   /**
    * A list of sources for videos uploaded by Subbers. Used with {@link ExtraData.Sources}. Has no effect on VTubers.
    */
-  public get sources(): Readonly<Video[]> {
-    return this.#sources;
-  }
+  public readonly sources: Readonly<Video[]>;
 
   /**
    * A list of videos that are referred by this video. Used with {@link ExtraData.Refers}
    */
-  public get refers(): Readonly<Video[]> {
-    return this.#refers;
-  }
+  public readonly refers: Readonly<Video[]>;
 
   /**
    * A list of videos that are simulcast on another channel. Used with {@link ExtraData.Simulcasts}
    */
-  public get simulcasts(): Readonly<Video[]> {
-    return this.#simulcasts;
-  }
+  public readonly simulcasts: Readonly<Video[]>;
 
   /**
    * A list of channels that are mentioned by this video. Used with {@link ExtraData.Mentions}
    */
-  public get mentions(): Readonly<Channel[]> {
-    return this.#mentions;
-  }
+  public readonly mentions: Readonly<Channel[]>;
 
   /**
    * A list of songs used in this video. Used with {@link ExtraData.Songs}
    */
-  public get songs(): Readonly<Song[]> {
-    return this.#songs;
-  }
-
-  #channel: Channel;
-  #comments: Comment[];
-  #clips: Video[];
-  #sources: Video[];
-  #refers: Video[];
-  #simulcasts: Video[];
-  #mentions: Channel[];
-  #songs: Song[];
+  public readonly songs: Readonly<Song[]>;
 
   constructor(private raw: VideoRaw) {
-    this.#channel = new Channel(this.raw.channel);
-    this.#comments =
+    this.channel = new Channel(this.raw.channel);
+    this.comments =
       this.raw.comments?.map((comment) => new Comment(comment)) ?? [];
-    this.#clips = this.raw.clips?.map((video) => new Video(video)) ?? [];
-    this.#sources = this.raw.sources?.map((video) => new Video(video)) ?? [];
-    this.#refers = this.raw.refers?.map((video) => new Video(video)) ?? [];
-    this.#simulcasts =
+    this.clips = this.raw.clips?.map((video) => new Video(video)) ?? [];
+    this.sources = this.raw.sources?.map((video) => new Video(video)) ?? [];
+    this.refers = this.raw.refers?.map((video) => new Video(video)) ?? [];
+    this.simulcasts =
       this.raw.simulcasts?.map((video) => new Video(video)) ?? [];
-    this.#mentions =
+    this.mentions =
       this.raw.mentions?.map((channel) => new Channel(channel)) ?? [];
-    this.#songs = this.raw.songs?.map((song) => new Song(song)) ?? [];
+    this.songs = this.raw.songs?.map((song) => new Song(song)) ?? [];
   }
 }
