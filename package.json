@@ -13,7 +13,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "docs": "typedoc --theme ./node_modules/typedoc-neo-theme/bin/default --plugin typedoc-neo-theme --excludeInternal --out docs src/index.ts",
-    "publish:prepare": "npm run lint:fix && npm run test:full && npm run docs",
+    "publish:prepare": "npm run format && npm run lint && npm run test && npm run docs && npm run build",
     "publish:patch": "npm version patch && npm publish --access public",
     "publish:minor": "npm version minor && npm publish --access public",
     "publish:major": "npm version major && npm publish --access public"
@@ -28,6 +28,7 @@
   "bugs": {
     "url": "https://github.com/stu43005/holodex-api"
   },
+  "homepage": "https://stu43005.github.io/holodex-api/index.html",
   "dependencies": {
     "axios": "^0.21.1",
     "axios-retry": "^3.1.9",

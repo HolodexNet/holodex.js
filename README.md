@@ -37,6 +37,10 @@ client.getLiveVideos({ org: 'Hololive' })
   });
 ```
 
+## Documentation
+
+Documentation can be found [here](https://stu43005.github.io/holodex-api/index.html).
+
 ## License
 
 [MIT](./LICENSE)
