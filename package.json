@@ -18,6 +18,10 @@
     "publish:minor": "npm version minor && npm publish --access public",
     "publish:major": "npm version major && npm publish --access public"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stu43005/holodex-api.git"
+  },
   "keywords": [
     "hololive",
     "holodex",
