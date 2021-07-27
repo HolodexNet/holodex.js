@@ -1,5 +1,5 @@
 # Holodex API client
-[![NPM](https://nodeico.herokuapp.com/@stu43005/holodex-api.svg)](https://npmjs.com/package/@stu43005/holodex-api)
+[![NPM](https://nodeico.herokuapp.com/holodex.js.svg)](https://npmjs.com/package/holodex.js)
 
 A Javascript library for the [Holodex API](https://holodex.stoplight.io/).
 
@@ -8,13 +8,13 @@ A Javascript library for the [Holodex API](https://holodex.stoplight.io/).
 Using npm:
 
 ```
-$ npm install @stu43005/holodex-api
+$ npm install holodex.js
 ```
 
 ## Getting Started
 
 ```js
-import { HolodexApiClient } from '@stu43005/holodex-api';
+import { HolodexApiClient } from 'holodex.js';
 
 const client = new HolodexApiClient({
   apiKey: '' // Provide your personal API KEY. You can acquire a API KEY via the Account Settings page.

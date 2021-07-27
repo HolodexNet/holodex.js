@@ -1,5 +1,5 @@
 {
-  "name": "@stu43005/holodex-api",
+  "name": "holodex.js",
   "version": "1.0.3",
   "description": "A Javascript library for the Holodex API.",
   "main": "dist/index.js",
@@ -20,24 +20,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stu43005/holodex-api.git"
+    "url": "git+https://github.com/HolodexNet/holodex-api.git"
   },
   "keywords": [
     "hololive",
     "holodex",
     "api"
   ],
-  "author": "Shiaupiau",
+  "author": "HolodexNet",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stu43005/holodex-api"
+    "url": "https://github.com/HolodexNet/holodex-api"
   },
-  "homepage": "https://stu43005.github.io/holodex-api/index.html",
+  "homepage": "https://holodexnet.github.io/holodex-api/",
   "dependencies": {
     "axios": "^0.21.1",
     "axios-retry": "^3.1.9",
     "querystring": "^0.2.1",
-    "rimraf": "^3.0.2",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -53,6 +52,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.0.5",
     "prettier": "^2.3.1",
+    "rimraf": "^3.0.2",
     "supertest": "^6.1.3",
     "ts-jest": "^27.0.3",
     "ts-loader": "^9.2.3",
