@@ -8,13 +8,13 @@ A Javascript library for the [Holodex API](https://holodex.stoplight.io/).
 Using npm:
 
 ```
-$ npm install @HolodexNet/holodex-api
+$ npm install @stu43005/holodex-api
 ```
 
 ## Getting Started
 
 ```js
-import { HolodexApiClient } from '@HolodexNet/holodex-api';
+import { HolodexApiClient } from '@stu43005/holodex-api';
 
 const client = new HolodexApiClient({
   apiKey: '' // Provide your personal API KEY. You can acquire a API KEY via the Account Settings page.
