@@ -39,7 +39,7 @@ client.getLiveVideos({ org: 'Hololive' })
 
 ## Documentation
 
-Documentation can be found [here](https://holodexnet.github.io/holodex-api/).
+Documentation can be found [here](https://holodexnet.github.io/holodex.js/).
 
 ## License
 

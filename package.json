@@ -20,19 +20,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HolodexNet/holodex-api.git"
+    "url": "git+https://github.com/HolodexNet/holodex.js.git"
   },
   "keywords": [
     "hololive",
     "holodex",
-    "api"
+    "api",
+    "vtubers",
+    "data"
   ],
   "author": "HolodexNet",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HolodexNet/holodex-api"
+    "url": "https://github.com/HolodexNet/holodex.js"
   },
-  "homepage": "https://holodexnet.github.io/holodex-api/",
+  "homepage": "https://holodexnet.github.io/holodex.js/",
   "dependencies": {
     "axios": "^0.21.1",
     "axios-retry": "^3.1.9",
