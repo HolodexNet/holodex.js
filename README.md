@@ -8,7 +8,7 @@ A Javascript library for the [Holodex API](https://holodex.stoplight.io/).
 Using npm:
 
 ```
-$ npm install @stu43005/holodex-api
+$ npm install @HolodexNet/holodex-api
 ```
 
 ## Getting Started
