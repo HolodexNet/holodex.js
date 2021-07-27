@@ -164,6 +164,11 @@ export class HolodexApiClient {
     return data.map((video) => new Video(video));
   }
 
+  /**
+   * Retrieve videos matching the given parameters.
+   *
+   * @param params See {@link VideosParam}
+   */
   async getVideos(params: VideosParam = {}) {
     params.lang ??= 'all';
     params.limit ??= 25;
