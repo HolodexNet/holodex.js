@@ -14,7 +14,7 @@ $ npm install @stu43005/holodex-api
 ## Getting Started
 
 ```js
-import { HolodexApiClient } from '@stu43005/holodex-api';
+import { HolodexApiClient } from '@HolodexNet/holodex-api';
 
 const client = new HolodexApiClient({
   apiKey: '' // Provide your personal API KEY. You can acquire a API KEY via the Account Settings page.
@@ -39,7 +39,7 @@ client.getLiveVideos({ org: 'Hololive' })
 
 ## Documentation
 
-Documentation can be found [here](https://stu43005.github.io/holodex-api/index.html).
+Documentation can be found [here](https://holodexnet.github.io/holodex-api/).
 
 ## License
 
