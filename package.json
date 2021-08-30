@@ -1,48 +1,44 @@
 {
   "name": "holodex.js",
-  "version": "1.0.5",
   "description": "A Javascript library for the Holodex API.",
-  "main": "dist/index.js",
+  "version": "1.0.5",
+  "author": "HolodexNet",
+  "type": "module",
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "tsc -p tsconfig.build.json",
+    "build": "microbundle -f esm,cjs --target node --no-compress && shx chmod +x ./dist/cli.js",
+    "dev": "microbundle watch -f esm,cjs --target node --no-compress",
+    "docs": "typedoc --theme ./node_modules/typedoc-neo-theme/bin/default --plugin typedoc-neo-theme --excludeInternal --out docs src/index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --fix",
+    "prebuild": "rimraf dist",
+    "publish:major": "npm version major && npm publish --access public",
+    "publish:minor": "npm version minor && npm publish --access public",
+    "publish:patch": "npm version patch && npm publish --access public",
+    "publish:prepare": "npm run format && npm run lint && npm run test && npm run docs && npm run build",
     "test": "jest",
-    "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "docs": "typedoc --theme ./node_modules/typedoc-neo-theme/bin/default --plugin typedoc-neo-theme --excludeInternal --out docs src/index.ts",
-    "publish:prepare": "npm run format && npm run lint && npm run test && npm run docs && npm run build",
-    "publish:patch": "npm version patch && npm publish --access public",
-    "publish:minor": "npm version minor && npm publish --access public",
-    "publish:major": "npm version major && npm publish --access public"
+    "test:watch": "jest --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/HolodexNet/holodex.js.git"
+  "types": "dist/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "bin": {
+    "holodex": "dist/cli.js"
   },
-  "keywords": [
-    "hololive",
-    "holodex",
-    "api",
-    "vtubers",
-    "data"
-  ],
-  "author": "HolodexNet",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/HolodexNet/holodex.js"
-  },
-  "homepage": "https://holodexnet.github.io/holodex.js/",
   "dependencies": {
     "axios": "^0.21.1",
     "axios-retry": "^3.1.9",
+    "chalk": "^4.1.2",
+    "dayjs": "^1.10.6",
     "querystring": "^0.2.1",
-    "tslib": "^2.3.1"
+    "terminal-link": "^3.0.0",
+    "tslib": "^2.3.1",
+    "yargs": "^17.1.1"
   },
   "devDependencies": {
     "@tsconfig/node10": "^1.0.8",
+    "@tsconfig/node12": "^1.0.9",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.6",
     "@types/supertest": "^2.0.11",
@@ -53,8 +49,10 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.1",
     "jest": "^27.1.0",
+    "microbundle": "^0.13.3",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
+    "shx": "^0.3.3",
     "supertest": "^6.1.6",
     "ts-jest": "^27.0.5",
     "ts-loader": "^9.2.5",
@@ -64,6 +62,22 @@
     "typedoc-neo-theme": "^1.1.1",
     "typescript": "^4.4.2"
   },
+  "homepage": "https://holodexnet.github.io/holodex.js/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HolodexNet/holodex.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HolodexNet/holodex.js"
+  },
+  "license": "MIT",
+  "keywords": [
+    "api",
+    "data",
+    "holodex",
+    "hololive",
+    "vtubers"
+  ],
   "jest": {
     "moduleFileExtensions": [
       "js",
@@ -80,5 +94,9 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "source": [
+    "src/index.ts",
+    "src/cli.ts"
+  ]
 }
