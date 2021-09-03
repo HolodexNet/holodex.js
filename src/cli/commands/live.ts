@@ -1,29 +1,34 @@
-import { ORGS } from '../../types/org';
-import { fromNow, getClient, printAsJson } from '../helpers';
 import chalk from 'chalk';
-import terminalLink from 'terminal-link';
+import { CommandModule } from 'yargs';
+import { ORGS } from '../../types/org';
+import { Video } from '../../types/video';
+import { fromNow, handlerFactory, resolveOrg, videoLink } from '../helpers';
 
-export default async function live(argv: any) {
-  const jsonOutput = argv.json;
-  const scope = argv.scope as keyof typeof ORGS;
+const handler = handlerFactory(
+  async ({ client, argv }) => {
+    const org = resolveOrg(argv.scope);
+    const videos = await client.getLiveVideos({ org });
+    return videos;
+  },
+  (videos: Video[]) => {
+    for (const video of videos) {
+      console.log(videoLink(video.videoId, video.title));
+      console.log(chalk.gray(fromNow(video.scheduledStart)));
+    }
+  },
+);
 
-  const org = ORGS[scope] || ORGS['all'];
+const command: CommandModule = {
+  command: 'live [scope]',
+  describe: 'Get live streams',
+  builder: (yargs) =>
+    yargs.positional('scope', {
+      type: 'string',
+      default: 'all',
+      desc: 'Search scope',
+      choices: Object.keys(ORGS),
+    }),
+  handler,
+};
 
-  const client = getClient();
-
-  let videos = await client.getLiveVideos({ org });
-
-  if (jsonOutput) {
-    return printAsJson(videos.map((video) => video.toRaw()));
-  }
-
-  for (const video of videos) {
-    console.log(
-      terminalLink(
-        chalk.cyan.bold(video.title),
-        `https://www.youtube.com/watch?v=${video.videoId}`,
-      ),
-    );
-    console.log(chalk.gray(fromNow(video.scheduledStart)));
-  }
-}
+export default command;

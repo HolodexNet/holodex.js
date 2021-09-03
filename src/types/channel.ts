@@ -2,6 +2,10 @@ import { ChannelType } from './enums/channel-type';
 import { ChannelRaw } from './raw/channel-raw';
 
 export class Channel {
+  public toRaw() {
+    return this.raw;
+  }
+
   /**
    * The unique ID of the channel.
    */

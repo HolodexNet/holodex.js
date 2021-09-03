@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
 import yargs from 'yargs';
+import channel from './cli/commands/channel.js';
 import live from './cli/commands/live.js';
-import { ORGS } from './types/org.js';
+import video from './cli/commands/video.js';
 
 export interface GlobalOptions {
   json: boolean;
+  token?: string;
 }
 
 yargs(process.argv.slice(2))
@@ -16,16 +18,12 @@ yargs(process.argv.slice(2))
     alias: 'j',
     desc: 'Print JSON',
   })
-  .command(
-    'live [scope]',
-    'Get live streams',
-    (yargs) =>
-      yargs.positional('scope', {
-        type: 'string',
-        default: 'all',
-        desc: 'Search scope',
-        choices: Object.keys(ORGS),
-      }),
-    live,
-  )
+  .option('token', {
+    type: 'string',
+    alias: 't',
+    desc: 'API Token',
+  })
+  .command(live)
+  .command(channel)
+  .command(video)
   .demandCommand().argv;
