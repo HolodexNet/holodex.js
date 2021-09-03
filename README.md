@@ -40,11 +40,27 @@ client.getLiveVideos({ org: 'Hololive' }).then(function (videos) {
 
 ### CLI
 
+### live
+
 ```bash
 holodex live # => get live streams of all vtubers
 holodex live hololive # => get live streams from hololive talents
 holodex live hololive --json # => get hololive streams in JSON format
 holodex live nijisanji --json | jq -r '[.[] | {title: .title, url: ("https://www.youtube.com/watch?v="+.id)}]' # => get a list of nijisanji streams as {title: string, url: string} object in JSON format
+```
+
+#### channel
+
+```bash
+holodex channel <channel id> # => get channel info
+holodex channel <channel id> -j # => get channel info in JSON
+```
+
+#### video
+
+```bash
+holodex video <video id> # => get video info
+holodex video <video id> -j # => get video info in JSON
 ```
 
 ## Documentation
