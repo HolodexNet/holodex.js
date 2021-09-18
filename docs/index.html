@@ -73,41 +73,65 @@
 		<div class="col-7 offset-3 col-content">
 			<h1>Project holodex.js</h1>
 			<div class="tsd-panel tsd-typography">
-				<a href="#holodex-api-client" id="holodex-api-client" style="color: inherit; text-decoration: none;">
-					<h1>Holodex API client</h1>
+				<a href="#holodexjs" id="holodexjs" style="color: inherit; text-decoration: none;">
+					<h1>holodex.js</h1>
 				</a>
 				<p><a href="https://npmjs.com/package/holodex.js"><img src="https://nodeico.herokuapp.com/holodex.js.svg" alt="NPM"></a></p>
-				<p>A Javascript library for the <a href="https://holodex.stoplight.io/">Holodex API</a>.</p>
-				<a href="#installing" id="installing" style="color: inherit; text-decoration: none;">
-					<h2>Installing</h2>
+				<p>A Javascript library for <a href="https://holodex.stoplight.io/">Holodex API</a>.</p>
+				<a href="#install" id="install" style="color: inherit; text-decoration: none;">
+					<h2>Install</h2>
 				</a>
 				<p>Using npm:</p>
-				<pre><code><span style="color: #001080">$</span><span style="color: #000000"> </span><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">install</span><span style="color: #000000"> </span><span style="color: #001080">holodex</span><span style="color: #000000">.</span><span style="color: #001080">js</span>
+				<pre><code class="language-bash"><span style="color: #000000">npm install holodex.js</span>
 </code></pre>
-				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
-					<h2>Getting Started</h2>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
+					<h3>API</h3>
 				</a>
 				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">HolodexApiClient</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;holodex.js&#039;</span><span style="color: #000000">;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">HolodexApiClient</span><span style="color: #000000">({</span>
-<span style="color: #000000">  </span><span style="color: #001080">apiKey:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;&#039;</span><span style="color: #000000"> </span><span style="color: #008000">// Provide your personal API KEY. You can acquire a API KEY via the Account Settings page.</span>
+<span style="color: #000000">  </span><span style="color: #001080">apiKey:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;&#039;</span><span style="color: #000000">, </span><span style="color: #008000">// Provide your personal API KEY. You can acquire a API KEY via the Account Settings page.</span>
 <span style="color: #000000">});</span>
 
 <span style="color: #008000">// Get Usada Pekora&#039;s channel info</span>
-<span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getChannel</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;UC1DCedRgGHBdm81E1llLhOQ&#039;</span><span style="color: #000000">)</span>
-<span style="color: #000000">  .</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #0000FF">function</span><span style="color: #000000"> (</span><span style="color: #001080">channel</span><span style="color: #000000">) {</span>
-<span style="color: #000000">    </span><span style="color: #008000">// handle result</span>
-<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">channel</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">); </span><span style="color: #008000">// Pekora Ch. 兎田ぺこら</span>
-<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">channel</span><span style="color: #000000">.</span><span style="color: #001080">englishName</span><span style="color: #000000">); </span><span style="color: #008000">// Usada Pekora</span>
-<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">channel</span><span style="color: #000000">.</span><span style="color: #001080">subscriberCount</span><span style="color: #000000">); </span><span style="color: #008000">// 1540000</span>
-<span style="color: #000000">  });</span>
+<span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getChannel</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;UC1DCedRgGHBdm81E1llLhOQ&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #0000FF">function</span><span style="color: #000000"> (</span><span style="color: #001080">channel</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #008000">// handle result</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">channel</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">); </span><span style="color: #008000">// Pekora Ch. 兎田ぺこら</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">channel</span><span style="color: #000000">.</span><span style="color: #001080">englishName</span><span style="color: #000000">); </span><span style="color: #008000">// Usada Pekora</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">channel</span><span style="color: #000000">.</span><span style="color: #001080">subscriberCount</span><span style="color: #000000">); </span><span style="color: #008000">// 1540000</span>
+<span style="color: #000000">});</span>
 
 <span style="color: #008000">// Get Hololive&#039;s stream</span>
-<span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getLiveVideos</span><span style="color: #000000">({ </span><span style="color: #001080">org:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Hololive&#039;</span><span style="color: #000000"> })</span>
-<span style="color: #000000">  .</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #0000FF">function</span><span style="color: #000000"> (</span><span style="color: #001080">videos</span><span style="color: #000000">) {</span>
-<span style="color: #000000">    </span><span style="color: #008000">// handle result</span>
-<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">videos</span><span style="color: #000000">);</span>
-<span style="color: #000000">  });</span>
+<span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getLiveVideos</span><span style="color: #000000">({ </span><span style="color: #001080">org:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Hololive&#039;</span><span style="color: #000000"> }).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #0000FF">function</span><span style="color: #000000"> (</span><span style="color: #001080">videos</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #008000">// handle result</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">videos</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#cli" id="cli" style="color: inherit; text-decoration: none;">
+					<h3>CLI</h3>
+				</a>
+				<a href="#live" id="live" style="color: inherit; text-decoration: none;">
+					<h3>live</h3>
+				</a>
+				<pre><code class="language-bash"><span style="color: #000000">holodex live </span><span style="color: #008000"># =&gt; get live streams of all vtubers</span>
+<span style="color: #000000">holodex live hololive </span><span style="color: #008000"># =&gt; get live streams from hololive talents</span>
+<span style="color: #000000">holodex live hololive --json </span><span style="color: #008000"># =&gt; get hololive streams in JSON format</span>
+<span style="color: #000000">holodex live nijisanji --json | jq -r </span><span style="color: #A31515">&#039;[.[] | {title: .title, url: (&quot;https://www.youtube.com/watch?v=&quot;+.id)}]&#039;</span><span style="color: #000000"> </span><span style="color: #008000"># =&gt; get a list of nijisanji streams as {title: string, url: string} object in JSON format</span>
+</code></pre>
+				<a href="#channel" id="channel" style="color: inherit; text-decoration: none;">
+					<h4>channel</h4>
+				</a>
+				<pre><code class="language-bash"><span style="color: #000000">holodex channel &lt;channel id&gt; </span><span style="color: #008000"># =&gt; get channel info</span>
+<span style="color: #000000">holodex channel &lt;channel id&gt; -j </span><span style="color: #008000"># =&gt; get channel info in JSON</span>
+</code></pre>
+				<a href="#video" id="video" style="color: inherit; text-decoration: none;">
+					<h4>video</h4>
+				</a>
+				<pre><code class="language-bash"><span style="color: #000000">holodex video &lt;video id&gt; </span><span style="color: #008000"># =&gt; get video info</span>
+<span style="color: #000000">holodex video &lt;video id&gt; -j </span><span style="color: #008000"># =&gt; get video info in JSON</span>
 </code></pre>
 				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
 					<h2>Documentation</h2>
@@ -124,61 +148,61 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum root">
-						<a href="enums/channeltype.html" class="tsd-kind-icon">Channel<wbr>Type</a>
+						<a href="enums/ChannelType.html" class="tsd-kind-icon">Channel<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-enum root">
-						<a href="enums/extradata.html" class="tsd-kind-icon">Extra<wbr>Data</a>
+						<a href="enums/ExtraData.html" class="tsd-kind-icon">Extra<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-enum root">
-						<a href="enums/sortorder.html" class="tsd-kind-icon">Sort<wbr>Order</a>
+						<a href="enums/SortOrder.html" class="tsd-kind-icon">Sort<wbr>Order</a>
 					</li>
 					<li class=" tsd-kind-enum root">
-						<a href="enums/videosearchtype.html" class="tsd-kind-icon">Video<wbr>Search<wbr>Type</a>
+						<a href="enums/VideoSearchType.html" class="tsd-kind-icon">Video<wbr>Search<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-enum root">
-						<a href="enums/videostatus.html" class="tsd-kind-icon">Video<wbr>Status</a>
+						<a href="enums/VideoStatus.html" class="tsd-kind-icon">Video<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-enum root">
-						<a href="enums/videotype.html" class="tsd-kind-icon">Video<wbr>Type</a>
+						<a href="enums/VideoType.html" class="tsd-kind-icon">Video<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-class root">
-						<a href="classes/channel.html" class="tsd-kind-icon">Channel</a>
+						<a href="classes/Channel.html" class="tsd-kind-icon">Channel</a>
 					</li>
 					<li class=" tsd-kind-class root">
-						<a href="classes/comment.html" class="tsd-kind-icon">Comment</a>
+						<a href="classes/Comment.html" class="tsd-kind-icon">Comment</a>
 					</li>
 					<li class=" tsd-kind-class root">
-						<a href="classes/holodexapiclient.html" class="tsd-kind-icon">Holodex<wbr>Api<wbr>Client</a>
+						<a href="classes/HolodexApiClient.html" class="tsd-kind-icon">Holodex<wbr>Api<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-class root">
-						<a href="classes/song.html" class="tsd-kind-icon">Song</a>
+						<a href="classes/Song.html" class="tsd-kind-icon">Song</a>
 					</li>
 					<li class=" tsd-kind-class root">
-						<a href="classes/video.html" class="tsd-kind-icon">Video</a>
+						<a href="classes/Video.html" class="tsd-kind-icon">Video</a>
 					</li>
 					<li class=" tsd-kind-interface root">
-						<a href="interfaces/channelraw.html" class="tsd-kind-icon">Channel<wbr>Raw</a>
+						<a href="interfaces/ChannelRaw.html" class="tsd-kind-icon">Channel<wbr>Raw</a>
 					</li>
 					<li class=" tsd-kind-interface root">
-						<a href="interfaces/channelvideosparam.html" class="tsd-kind-icon">Channel<wbr>Videos<wbr>Param</a>
+						<a href="interfaces/ChannelVideosParam.html" class="tsd-kind-icon">Channel<wbr>Videos<wbr>Param</a>
 					</li>
 					<li class=" tsd-kind-interface root">
-						<a href="interfaces/channelsparam.html" class="tsd-kind-icon">Channels<wbr>Param</a>
+						<a href="interfaces/ChannelsParam.html" class="tsd-kind-icon">Channels<wbr>Param</a>
 					</li>
 					<li class=" tsd-kind-interface root">
-						<a href="interfaces/commentraw.html" class="tsd-kind-icon">Comment<wbr>Raw</a>
+						<a href="interfaces/CommentRaw.html" class="tsd-kind-icon">Comment<wbr>Raw</a>
 					</li>
 					<li class=" tsd-kind-interface root">
-						<a href="interfaces/options.html" class="tsd-kind-icon">Options</a>
+						<a href="interfaces/Options.html" class="tsd-kind-icon">Options</a>
 					</li>
 					<li class=" tsd-kind-interface root">
-						<a href="interfaces/songraw.html" class="tsd-kind-icon">Song<wbr>Raw</a>
+						<a href="interfaces/SongRaw.html" class="tsd-kind-icon">Song<wbr>Raw</a>
 					</li>
 					<li class=" tsd-kind-interface root">
-						<a href="interfaces/videoraw.html" class="tsd-kind-icon">Video<wbr>Raw</a>
+						<a href="interfaces/VideoRaw.html" class="tsd-kind-icon">Video<wbr>Raw</a>
 					</li>
 					<li class=" tsd-kind-interface root">
-						<a href="interfaces/videosparam.html" class="tsd-kind-icon">Videos<wbr>Param</a>
+						<a href="interfaces/VideosParam.html" class="tsd-kind-icon">Videos<wbr>Param</a>
 					</li>
 				</ul>
 			</nav>

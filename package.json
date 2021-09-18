@@ -27,7 +27,7 @@
     "holodex": "dist/cli.js"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "axios-retry": "^3.1.9",
     "chalk": "^4.1.2",
     "querystring": "^0.2.1",
@@ -39,17 +39,17 @@
     "@tsconfig/node10": "^1.0.8",
     "@tsconfig/node12": "^1.0.9",
     "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.6",
-    "@typescript-eslint/eslint-plugin": "^4.29.3",
-    "@typescript-eslint/parser": "^4.29.3",
-    "dayjs": "^1.10.6",
+    "@types/node": "^16.9.2",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "dayjs": "^1.10.7",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.1",
-    "jest": "^27.1.0",
+    "jest": "^27.2.0",
     "microbundle": "^0.13.3",
-    "prettier": "^2.3.2",
+    "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "shx": "^0.3.3",
     "ts-jest": "^27.0.5",
@@ -58,7 +58,7 @@
     "tsconfig-paths": "^3.11.0",
     "typedoc": "^0.21.9",
     "typedoc-neo-theme": "^1.1.1",
-    "typescript": "^4.4.2"
+    "typescript": "^4.4.3"
   },
   "homepage": "https://holodexnet.github.io/holodex.js/",
   "repository": {
