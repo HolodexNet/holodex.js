@@ -4,6 +4,10 @@ import { VideoRaw } from './raw/video-raw';
 import { Song } from './song';
 
 export class Video {
+  public toRaw() {
+    return this.raw;
+  }
+
   /**
    * The unique ID of the video.
    */

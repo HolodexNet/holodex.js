@@ -9,7 +9,7 @@ describe('Videos', () => {
   beforeAll(async () => {
     dotenv.config();
     client = new HolodexApiClient({
-      apiKey: process.env.APIKEY,
+      apiKey: process.env.HOLODEX_APIKEY,
     });
   });
 
