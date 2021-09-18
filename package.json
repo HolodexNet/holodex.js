@@ -1,7 +1,7 @@
 {
   "name": "holodex.js",
   "description": "A Javascript library for the Holodex API.",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "author": "HolodexNet",
   "type": "module",
   "scripts": {
