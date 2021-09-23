@@ -9,7 +9,7 @@
     "docs": "typedoc --theme ./node_modules/typedoc-neo-theme/bin/default --plugin typedoc-neo-theme --excludeInternal --out docs src/index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --fix",
-    "prebuild": "rimraf dist",
+    "prebuild": "shx rm -rf dist",
     "publish:major": "npm version major && npm publish --access public",
     "publish:minor": "npm version minor && npm publish --access public",
     "publish:patch": "npm version patch && npm publish --access public",
@@ -50,7 +50,6 @@
     "eslint-plugin-prettier": "^3.4.1",
     "jest": "^27.2.1",
     "prettier": "^2.4.1",
-    "rimraf": "^3.0.2",
     "shx": "^0.3.3",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
@@ -74,5 +73,8 @@
     "holodex",
     "hololive",
     "vtubers"
-  ]
+  ],
+  "engines": {
+    "node": ">=14"
+  }
 }
