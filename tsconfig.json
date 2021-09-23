@@ -1,12 +1,12 @@
 {
-  "extends": "@tsconfig/node14/tsconfig.json",
   "compilerOptions": {
     "declaration": true,
     "importHelpers": true,
     "sourceMap": true,
+    "target": "es2019",
     "module": "ES2020",
     "moduleResolution": "node",
     "outDir": "./dist"
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["dist"]
 }

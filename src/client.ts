@@ -1,7 +1,7 @@
 import { strict as assert } from 'assert';
 import axios, { AxiosInstance } from 'axios';
 import axiosRetry from 'axios-retry';
-import querystring from 'querystring';
+import * as querystring from 'querystring';
 import {
   Channel,
   ChannelRaw,
