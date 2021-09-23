@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { ORGS } from '../types/org';
 import terminalLink from 'terminal-link';
+import Conf from 'conf';
 import chalk from 'chalk';
 
 dayjs.extend(relativeTime);
@@ -17,22 +18,35 @@ export function channelLink(channelId: string, title: string) {
   return terminalLink(chalk.cyan.bold(title), ytURL);
 }
 
-export function handlerFactory(
-  processor: ({
-    client,
-    argv,
-  }: {
-    client: HolodexApiClient;
-    argv: any;
-  }) => any = (...args: any) => args,
-  printer: any = console.log,
-) {
+type ToRawable = { toRaw: () => any } | { toRaw: () => any }[];
+
+type Processor<T> = ({
+  client,
+  argv,
+  config,
+}: {
+  client: HolodexApiClient;
+  argv: any;
+  config: Conf<Config>;
+}) => Promise<T> | T;
+
+interface Config {
+  token?: string;
+}
+
+export function handlerFactory<P extends Processor<T>, T extends ToRawable>({
+  processor,
+  printer = console.log,
+}: {
+  processor: P;
+  printer?: (response: T) => void;
+}) {
   return async (argv: any) => {
     const formatJSON = argv.json;
-    const token = argv.token;
-    const client = getClient(token || process.env.HOLODEX_APIKEY);
+    const config = new Conf<Config>();
+    const client = getClient(process.env.HOLODEX_APIKEY || config.get('token'));
 
-    const response = await Promise.resolve(processor({ client, argv }));
+    const response = await Promise.resolve(processor({ client, argv, config }));
 
     if (formatJSON) {
       if (Array.isArray(response)) {

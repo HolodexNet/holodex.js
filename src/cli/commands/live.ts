@@ -4,19 +4,19 @@ import { ORGS } from '../../types/org';
 import { Video } from '../../types/video';
 import { fromNow, handlerFactory, resolveOrg, videoLink } from '../helpers';
 
-const handler = handlerFactory(
-  async ({ client, argv }) => {
+const handler = handlerFactory({
+  processor: async ({ client, argv }) => {
     const org = resolveOrg(argv.scope);
     const videos = await client.getLiveVideos({ org });
     return videos;
   },
-  (videos: Video[]) => {
+  printer: (videos: Video[]) => {
     for (const video of videos) {
       console.log(videoLink(video.videoId, video.title));
       console.log(chalk.gray(fromNow(video.scheduledStart)));
     }
   },
-);
+});
 
 const command: CommandModule = {
   command: 'live [scope]',

@@ -3,17 +3,17 @@ import { CommandModule } from 'yargs';
 import { Video } from '../../types/video';
 import { handlerFactory, videoLink } from '../helpers';
 
-const handler = handlerFactory(
-  async ({ client, argv }) => {
+const handler = handlerFactory({
+  processor: async ({ client, argv }) => {
     const id = argv.id;
     const video = await client.getVideo(id);
     return video;
   },
-  (video: Video) => {
+  printer: (video: Video) => {
     console.log(videoLink(video.videoId, video.title));
     console.log(chalk.gray(video.description?.slice(0, 120), '...'));
   },
-);
+});
 
 const command: CommandModule = {
   command: 'video <id>',
