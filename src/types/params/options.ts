@@ -3,7 +3,7 @@ export interface Options {
    * Holodex/HoloAPI Server Entrypoint
    * @default "https://holodex.net/api/v2"
    */
-  url: string;
+  url?: string;
 
   /**
    * Your personal API key. Be aware that the validity of the key is not checked, so ensure it is correct.

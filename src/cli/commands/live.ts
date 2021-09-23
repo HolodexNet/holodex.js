@@ -5,9 +5,9 @@ import { Video } from '../../types/video';
 import { fromNow, handlerFactory, resolveOrg, videoLink } from '../helpers';
 
 const handler = handlerFactory({
-  processor: async ({ client, argv }) => {
+  processor: async ({ getClient, argv }) => {
     const org = resolveOrg(argv.scope);
-    const videos = await client.getLiveVideos({ org });
+    const videos = await getClient().getLiveVideos({ org });
     return videos;
   },
   printer: (videos: Video[]) => {

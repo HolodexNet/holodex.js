@@ -1,4 +1,3 @@
-import { strict as assert } from 'assert';
 import axios, { AxiosInstance } from 'axios';
 import axiosRetry from 'axios-retry';
 import * as querystring from 'querystring';
@@ -18,10 +17,8 @@ import {
 export class HolodexApiClient {
   private httpClient: AxiosInstance;
 
-  constructor(options: Partial<Options>) {
+  constructor(options: Options) {
     options.url ??= 'https://holodex.net/api/v2';
-
-    assert.ok(typeof options.apiKey === 'string', 'apiKey not provided.');
 
     this.httpClient = axios.create({
       baseURL: options.url,

@@ -4,9 +4,9 @@ import { Video } from '../../types/video';
 import { handlerFactory, videoLink } from '../helpers';
 
 const handler = handlerFactory({
-  processor: async ({ client, argv }) => {
+  processor: async ({ getClient, argv }) => {
     const id = argv.id;
-    const video = await client.getVideo(id);
+    const video = await getClient().getVideo(id);
     return video;
   },
   printer: (video: Video) => {

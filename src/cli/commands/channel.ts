@@ -4,9 +4,9 @@ import { Channel } from '../../types/channel';
 import { channelLink, handlerFactory } from '../helpers';
 
 const handler = handlerFactory({
-  processor: async ({ client, argv }) => {
+  processor: async ({ getClient, argv }) => {
     const id = argv.id;
-    const channel = await client.getChannel(id);
+    const channel = await getClient().getChannel(id);
     return channel;
   },
   printer: (channel: Channel) => {

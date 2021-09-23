@@ -4,6 +4,7 @@ import yargs from 'yargs';
 import channel from './cli/commands/channel.js';
 import live from './cli/commands/live.js';
 import video from './cli/commands/video.js';
+import config from './cli/commands/config.js';
 
 export interface GlobalOptions {
   json: boolean;
@@ -26,4 +27,5 @@ yargs(process.argv.slice(2))
   .command(live)
   .command(channel)
   .command(video)
+  .command(config)
   .demandCommand().argv;
