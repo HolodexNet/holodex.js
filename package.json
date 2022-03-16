@@ -1,7 +1,7 @@
 {
   "name": "holodex.js",
   "description": "A Javascript library for the Holodex API.",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "author": "HolodexNet",
   "scripts": {
     "build": "tsup -d dist src/index.ts src/cli.ts --format esm --target node14 --dts",
