@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsup -d dist src/index.ts src/cli.ts --format esm --target node14 --dts",
     "dev": "npm run build -- --watch",
-    "docs": "typedoc --theme ./node_modules/typedoc-neo-theme/bin/default --plugin typedoc-neo-theme --excludeInternal --out docs src/index.ts",
+    "docs": "typedoc --out docs src/index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --fix",
     "prebuild": "shx rm -rf dist",
@@ -58,7 +58,6 @@
     "ts-node": "^10.2.1",
     "tsup": "^5.1.0",
     "typedoc": "^0.22.4",
-    "typedoc-neo-theme": "^1.1.1",
     "typescript": "^4.4.3"
   },
   "homepage": "https://holodexnet.github.io/holodex.js/",
