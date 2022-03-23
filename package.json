@@ -27,7 +27,7 @@
     "holodex": "./dist/cli.js"
   },
   "files": [
-    "./dist"
+    "dist"
   ],
   "dependencies": {
     "axios": "^0.21.4",
