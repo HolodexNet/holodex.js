@@ -1,6 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
 import axiosRetry from 'axios-retry';
-import * as querystring from 'querystring';
 import {
   Channel,
   ChannelRaw,
@@ -13,6 +12,10 @@ import {
   VideoSearchType,
   VideosParam,
 } from './types';
+
+function querystring(obj: Record<string, any>): string {
+  return new URLSearchParams(obj).toString();
+}
 
 export class HolodexApiClient {
   private httpClient: AxiosInstance;
@@ -49,7 +52,7 @@ export class HolodexApiClient {
       params.lang = params.lang.join(',');
     }
 
-    const q = querystring.stringify({
+    const q = querystring({
       ...params,
       limit: Math.min(Math.max(params.limit, 1), 50),
     });
@@ -83,7 +86,7 @@ export class HolodexApiClient {
     params.limit ??= 25;
     params.offset ??= 0;
 
-    const q = querystring.stringify({
+    const q = querystring({
       ...params,
       include: Array.isArray(params.include)
         ? params.include.join(',')
@@ -117,7 +120,7 @@ export class HolodexApiClient {
       params.c = 1;
     }
 
-    const q = querystring.stringify(params);
+    const q = querystring(params);
     const { data } = await this.httpClient.get<VideoRaw>(
       `/videos/${videoId}?${q}`,
     );
@@ -132,7 +135,7 @@ export class HolodexApiClient {
    * @param channelIds comma separated Youtube Channel IDs
    */
   async getLiveVideosByChannelId(channelIds: string | string[]) {
-    const q = querystring.stringify({
+    const q = querystring({
       channels: Array.isArray(channelIds) ? channelIds.join(',') : channelIds,
     });
     const { data } = await this.httpClient.get<VideoRaw[]>(`/users/live?${q}`);
@@ -150,7 +153,7 @@ export class HolodexApiClient {
     params.lang ??= 'all';
     params.offset ??= 0;
 
-    const q = querystring.stringify({
+    const q = querystring({
       ...params,
       include: Array.isArray(params.include)
         ? params.include.join(',')
@@ -173,7 +176,7 @@ export class HolodexApiClient {
     params.order ??= SortOrder.Descending;
     params.sort ??= 'available_at';
 
-    const q = querystring.stringify({
+    const q = querystring({
       ...params,
       include: Array.isArray(params.include)
         ? params.include.join(',')
