@@ -4,7 +4,7 @@
   "version": "2.0.1",
   "author": "HolodexNet",
   "scripts": {
-    "build": "tsup -d dist src/index.ts src/cli.ts --format esm --target node14 --dts",
+    "build": "tsup -d dist src/index.ts src/cli.ts --format esm,cjs --target node14 --dts",
     "dev": "npm run build -- --watch",
     "docs": "typedoc --out docs src/index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
@@ -20,9 +20,9 @@
     "test:debug": "node --inspect-brk -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:watch": "jest --watch"
   },
-  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": "./dist/index.js",
   "bin": {
     "holodex": "./dist/cli.js"
   },
